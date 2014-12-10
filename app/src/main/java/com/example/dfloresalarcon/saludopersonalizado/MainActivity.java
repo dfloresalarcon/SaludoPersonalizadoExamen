@@ -15,32 +15,46 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends Activity {
 
-    String saludo="";
+    String trato="";
+    String opcionES="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button btnHola = (Button)findViewById(R.id.btnHola);
+
         final EditText txtNombre = (EditText)findViewById(R.id.txtNombre);
         final TextView salida = (TextView)findViewById(R.id.salida);
+        final Button btnSaludar = (Button)findViewById(R.id.btnSaludar);
 
-
-
-        btnHola.setOnClickListener(new View.OnClickListener() {
+        btnSaludar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RadioGroup radio = (RadioGroup)findViewById(R.id.agruparRadios);
-                if (R.id.rbtnSr == radio.getCheckedRadioButtonId()){
-                    saludo+=" Sr. "+txtNombre.getText().toString();
+
+
+                RadioGroup radioTrato = (RadioGroup)findViewById(R.id.agruparRadios);
+                if (R.id.rbtnSr == radioTrato.getCheckedRadioButtonId()){
+                   trato = "Sr.";
                 }
                 else{
-                    saludo+=" Sra. "+txtNombre.getText().toString();
+                   trato = "Sra.";
                 }
 
-                salida.setText(btnHola.getText()+saludo);
+                RadioGroup eleccion = (RadioGroup)findViewById(R.id.agruparES);
+
+                if (R.id.rbtnHola == eleccion.getCheckedRadioButtonId()){
+                    opcionES = "Hola";
+                }
+                else{
+                   opcionES = "Adios";
+                }
+
+                salida.setText(opcionES+" "+trato+" "+txtNombre.getText().toString());
             }
         });
+
+
+
 
     }
 
