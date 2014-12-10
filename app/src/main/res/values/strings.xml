@@ -4,5 +4,7 @@
     <string name="app_name">SaludoPersonalizado</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="ssr"> Sr. </string>
+    <string name="ssra"> Sra. </string>
 
 </resources>

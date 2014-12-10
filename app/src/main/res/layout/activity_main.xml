@@ -8,4 +8,62 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
+
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="1000dp"
+        android:textAlignment="center">
+
+        <EditText
+            android:id="@+id/txtNombre"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:hint="Introduce Tu Nombre"/>
+
+        <TextView
+            android:text="Trato"
+            android:textSize="20dp"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"/>
+
+        <RadioGroup
+            android:id="@+id/agruparRadios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbtnSr"
+                android:text="Sr."
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="80dp"/>
+
+            <RadioButton
+                android:id="@+id/rbtnSra"
+                android:text="Sra."
+                android:layout_width="100dp"
+                android:layout_height="40dp"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnHola"
+            android:text="Hola"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="200dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/salida"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="300dp"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+
 </RelativeLayout>
