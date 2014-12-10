@@ -5,18 +5,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends Activity {
 
     String trato="";
     String opcionES="";
+
+    ArrayList<String> lista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,22 +47,37 @@ public class MainActivity extends Activity {
                 else{
                    trato = "Sra.";
                 }
-
-                RadioGroup eleccion = (RadioGroup)findViewById(R.id.agruparES);
-
-                if (R.id.rbtnHola == eleccion.getCheckedRadioButtonId()){
-                    opcionES = "Hola";
-                }
-                else{
-                   opcionES = "Adios";
-                }
-
-                salida.setText(opcionES+" "+trato+" "+txtNombre.getText().toString());
             }
         });
 
+        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        //crear un ArrayList
+        lista = new ArrayList<String>();
+        // añadir hola y adios en el array (2 items)
+        lista.add("Hola");
+        lista.add("Adios");
+        // crear el adaptador del ArrayList
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista);
+        //ArrayAdapter<Tipo> nombredeladapter = new ArrayAdapter<Tipo>(this, android.R.layout.simple_spinner_item,	 nuestroarray);       
+        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        //nombredeladapyer.setDropDownResource(android.R.layout.simple_spinner_dropdown_item);
 
+        //enviar nuestro adapter creado
+        spinner.setAdapter(adaptador);
+
+        //sobrescribir el metodo serOnItemSelectedListener(new AdapterView.onItemSelectedListener(){...}
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View v, int position, long arg3) {
+                //mostrar elemento seleccionado
+               salida.setText(""+arg0.getItemAtPosition(position).toString()+" "+trato+" "+txtNombre.getText().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
 
     }
 

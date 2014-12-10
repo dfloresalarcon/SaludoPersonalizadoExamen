@@ -49,26 +49,12 @@
         </RadioGroup>
 
 
-        <RadioGroup
-            android:id="@+id/agruparES"
+        <Spinner
+            android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp">
 
-            <RadioButton
-                android:id="@+id/rbtnHola"
-                android:text="Hola"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="80dp"/>
-
-            <RadioButton
-                android:id="@+id/rbtnAdios"
-                android:text="Adios"
-                android:layout_width="100dp"
-                android:layout_height="40dp"/>
-
-        </RadioGroup>
+            android:layout_marginTop="200dp"/>
 
 
         <Button
